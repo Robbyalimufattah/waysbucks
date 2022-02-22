@@ -60,13 +60,13 @@ exports.getToppings = async (req, res) => {
             },
         });
     
-        // data = JSON.parse(JSON.stringify(data))    
-        // data = data.map((item) => {
-        //     return {
-        //     ...item,
-        //     image: process.env.FILE_PATH + item.image
-        //     }
-        // })
+        data = JSON.parse(JSON.stringify(data))    
+        data = data.map((item) => {
+            return {
+            ...item,
+            image: process.env.FILE_PATH + item.image
+            }
+        })
     
         res.send({
             status: "Success on Getting Toppings",

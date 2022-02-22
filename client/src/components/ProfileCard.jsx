@@ -9,9 +9,9 @@ export default function ProfileCard() {
         </div>
         <div className="space-y-4">
             <p className="text-yellow-700 font-bold">Full Name</p>
-            <p>Subhan Hanifa</p>
+            <p>Robby Alimu Fattah</p>
             <p className="text-yellow-700 font-bold">Email</p>
-            <p>subhanifa@mail.com</p>
+            <p>robbyfattah99@gmail.com</p>
         </div>
     </div>
   )

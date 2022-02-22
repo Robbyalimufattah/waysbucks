@@ -28,7 +28,7 @@ export default function App() {
   const [admin, setAdmin] = useContext(AdminContext);
   const [login, setLogin] = useContext(LoginContext);
   // console.clear();
-  console.log(state);
+  // console.log(state);
   useEffect(() => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
@@ -63,7 +63,7 @@ export default function App() {
 
       // Get user data
       let payload = response.data.data.user;
-      console.log(payload);
+      // console.log(payload);
       // Get token from local storage
       payload.token = localStorage.token;
 

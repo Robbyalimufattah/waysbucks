@@ -60,7 +60,7 @@ export default function TransactionsTable() {
   return (
     <>
       <div className="my-10 font-['Avenir-Book']">
-        <h3 className="mx-4 lg:mx-32 text-brand-red text-3xl font-['Avenir-Black'] mb-10">
+        <h3 className="mx-4 lg:mx-32 text-red-500 text-3xl font-['Avenir-Black'] mb-10">
           Income Transaction
         </h3>
         <div className="lg:mx-40 mx-4 flex justify-start overflow-x-auto">
