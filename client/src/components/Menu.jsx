@@ -25,7 +25,7 @@ export default function Menu() {
   }, []);
 
   return (
-    <div className="mx-5 my-4 md:mx-32 md:my-10 relative">
+    <div className="mx-5 my-4 md:mx-28 md:my-10 relative">
       <h1 className="mb-6 text-red-600 font-['Avenir-Black'] text-4xl md:text-5xl md:mb-10 ">
         Let&#39;s Order
       </h1>

@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "waysbuck_hanif",
+    "database": "waysbucks_robby",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
