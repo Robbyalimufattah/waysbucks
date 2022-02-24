@@ -84,8 +84,6 @@ export default function App() {
 
     return (
       <>
-        
-          
             <ModalProvider>
               <RegisterProvider>
                 <Nav/>
@@ -119,16 +117,8 @@ export default function App() {
                                 </TransactionModalProvider>
                                 } />
                       </Route>
-
-
-
-
-
-                      
                     </Route>
                   </Routes>
-          
-        
       </>
     )
 }
