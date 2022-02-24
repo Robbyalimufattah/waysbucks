@@ -99,7 +99,7 @@ export default function App() {
                       <Route exact path="/product/:id" element={ <ProductDetail/> } />
 
                       <Route exact path="/" element={ <CustomerRoute />}>
-                        <Route exact path="/profile" element={ <ProfilePage/> } />
+                        <Route exact path="/profile/:fullname" element={ <ProfilePage/> } />
                         <Route exact path="/cart" 
                                 element=
                                 {<CartModalProvider>

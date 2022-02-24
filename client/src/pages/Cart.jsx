@@ -1,11 +1,16 @@
 import React from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import OrderForm from '../components/OrderForm'
+import { OrderContext } from '../contexts/OrderContext'
 import { Attach } from '../exports/exportImage'
-import Transactions from '../tempData/Transactions'
 import thousandSeparator from '../utilities/thousandSeparator'
+import {uploads} from '../exports' 
 
 export default function Cart() {
+
+    const [order, setOrder] = useContext(OrderContext)
+
   return (
     <>
         <div className="text-red-700 font-['Avenir-Book'] mx-4 my-6 md:mx-20 md:my-16 lg:mx-40 xl:mx-32">
@@ -14,18 +19,18 @@ export default function Cart() {
                 <div className="lg:flex justify-between">
                     <div className="w-full lg:w-7/12 mb-20 lg:mb-0">
                         <hr className="border-1 border-red-700" />
-                        {Transactions.length > 0 ? (
-                            Transactions.map((item) => (
+                        {order.length > 0 ? (
+                            order.map((item) => (
                             <div key={item.id} className="flex justify-between">
                                 <div className="flex my-4 gap-x-4">
                                     <img
-                                        src={item.image}
+                                        src={uploads + item.product.image}
                                         className="h-20 w-20 object-cover rounded-lg"
                                         alt="product"
                                     />
                                     <div className="flex flex-col justify-center gap-y-2">
-                                        <h4 className="font-bold">{item.productName}</h4>
-                                        <p>Topping : {item.topping}</p>
+                                        <h4 className="font-bold">{item.product.title}</h4>
+                                        <p>Topping : {item.topping.title}</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-center items-end gap-y-2">
@@ -61,9 +66,9 @@ export default function Cart() {
                                         <span>Subtotal</span>
                                         <span>
                                             Rp{" "}
-                                            {Transactions.length > 0
+                                            {order.length > 0
                                             ? thousandSeparator(
-                                                Transactions.map((item) => item.price).reduce(
+                                                order.map((item) => item.price).reduce(
                                                     (prev, next) => prev + next
                                                 )
                                                 )
@@ -74,7 +79,7 @@ export default function Cart() {
                                     <div className="flex justify-between">
                                         <span>Qty</span>
                                         <span>
-                                            {Transactions.length > 0 ? Transactions.length : 0}
+                                            {order.length > 0 ? order.length : 0}
                                         </span>
                                     </div>
                                 </div>
@@ -83,9 +88,9 @@ export default function Cart() {
                                     <span>Total</span>
                                     <span>
                                     Rp{" "}
-                                    {Transactions.length > 0
+                                    {order.length > 0
                                         ? thousandSeparator(
-                                            Transactions.map((item) => item.price).reduce(
+                                            order.map((item) => item.price).reduce(
                                             (prev, next) => prev + next
                                             )
                                         )

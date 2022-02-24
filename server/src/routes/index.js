@@ -5,6 +5,7 @@ const { addUsers, getUsers, getUser, updateUser, deleteUser } = require('../cont
 const { register, login, checkAuth } = require('../controllers/auth')
 const { getProducts, addProduct, getProduct, updateProduct, deleteProduct } = require('../controllers/product')
 const { getToppings, getTopping, addTopping, updateTopping, deleteTopping } = require('../controllers/topping')
+const { getOrders, addOrder, deleteOrder } = require('../controllers/order')
 
 const { auth } = require('../middlewares/auth')
 const { uploadFile } = require('../middlewares/uploadFile')
@@ -34,6 +35,11 @@ router.get('/topping/:id', getTopping)
 router.post('/topping', auth, uploadFile("image"), addTopping)
 router.patch('/topping/:id', auth, uploadFile("image"),  updateTopping)
 router.delete('/topping/:id', auth, deleteTopping)
+
+//Route For Orders
+router.get('/orders/:id', getOrders)
+router.post('/order', auth, addOrder)
+router.delete('/order/:id', auth, deleteOrder)
 
 
 

@@ -1,7 +1,7 @@
-  import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ProfileCard from '../components/ProfileCard'
 import TransactionCard from '../components/TransactionCard'
-import { UserContext } from '../contexts/UserContext'
+import { OrderContext } from '../contexts/OrderContext'
   
   export default function ProfilePage() {
 
@@ -14,6 +14,7 @@ import { UserContext } from '../contexts/UserContext'
     //     console.log(error);
     //   }
     // }
+    
 
     return (
       <div className="lg:flex justify-between mx-4 my-6 md:mx-20 md:my-16 lg:mx-40 xl:mx-32">
