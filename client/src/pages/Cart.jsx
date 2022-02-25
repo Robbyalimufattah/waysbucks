@@ -1,15 +1,41 @@
 import React from 'react'
 import { useContext } from 'react'
-import { Link } from 'react-router-dom'
 import OrderForm from '../components/OrderForm'
 import { OrderContext } from '../contexts/OrderContext'
 import { Attach } from '../exports/exportImage'
 import thousandSeparator from '../utilities/thousandSeparator'
 import {uploads} from '../exports' 
 
+import { API } from '../config/api'
+import { UserContext } from '../contexts/UserContext'
+
 export default function Cart() {
 
+    const [ state, dispatch ] = useContext(UserContext)
     const [order, setOrder] = useContext(OrderContext)
+    
+    const getOrders = async (id) => {
+        try {
+          const response = await API.get(`/orders/${state.user.id}`);
+          // Store product data to useState variabel
+          setOrder(response.data.orders);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      const deleteOrder = async (id) => {
+        try {
+          const response = await API.delete("/order/" + id);
+          // Store product data to useState variabel
+          getOrders();
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
 
   return (
     <>
@@ -35,7 +61,7 @@ export default function Cart() {
                                 </div>
                                 <div className="flex flex-col justify-center items-end gap-y-2">
                                     <h4>Rp {thousandSeparator(item.price)},-</h4>
-                                    <Link to="/cart">
+                                    <button type='button' onClick={() => deleteOrder(item.id)}>
                                         <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         className="h-6 w-6"
@@ -50,7 +76,7 @@ export default function Cart() {
                                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                                         />
                                         </svg>
-                                    </Link>
+                                    </button>
                                 </div>
                             </div>
                             ))
